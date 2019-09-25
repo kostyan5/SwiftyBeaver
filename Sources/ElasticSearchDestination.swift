@@ -217,7 +217,7 @@ public class ElasticSearchDestination: BaseDestination {
                 if let str = elasticBulkCmdFromDict(payload) {
 //                    toNSLog(str)  // uncomment to see full payload
                     var msg = "Sending \(lines) log entries "
-                    msg += "(\(str.characters.count) chars) to server ..."
+                    msg += "(\(str.length) chars) to server ..."
                     toNSLog(msg)
                     //toNSLog("Sending \(encryptedStr) ...")
                     
@@ -417,7 +417,7 @@ public class ElasticSearchDestination: BaseDestination {
             var dicts = [[String: Any]()] // array of dictionaries
             for lineJSON in linesArray {
                 lines += 1
-                if lineJSON.characters.first == "{" && lineJSON.characters.last == "}" {
+                if lineJSON.first == "{" && lineJSON.last == "}" {
                     // try to parse json string into dict
                     if let data = lineJSON.data(using: .utf8) {
                         do {

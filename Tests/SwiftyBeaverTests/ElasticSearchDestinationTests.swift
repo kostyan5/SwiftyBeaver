@@ -45,8 +45,8 @@ class ElasticSearchDestinationTests: XCTestCase {
         XCTAssertNotNil(str)
         print(str!)
         if let str = str {
-            XCTAssertEqual(str.characters.first, "{")
-            XCTAssertEqual(str.characters.last, "}")
+            XCTAssertEqual(str.first, "{")
+            XCTAssertEqual(str.last, "}")
             XCTAssertNotNil(str.range(of: "\"line\":123"))
             XCTAssertNotNil(str.range(of: "\"message\":\"test message\\nNewline\""))
             XCTAssertNotNil(str.range(of: "\"fileName\":\"path.swift\""))
